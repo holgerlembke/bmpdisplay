@@ -36,13 +36,16 @@ void displayBMP(String filename) // only 8-bit bmps
   } info;
 #pragma pack(pop)
 
+  /* Check this in case of problems
   if (sizeof(header) != 14) {
     serial.println(F("Headerpanic"));
     serial.println(sizeof(header));
   }
   if (sizeof(info) != 40) {
     serial.println(F("Infopanic"));
+    serial.println(sizeof(info));
   }
+  */
 
   f.read(reinterpret_cast<byte*>(&header), sizeof(header));
 
