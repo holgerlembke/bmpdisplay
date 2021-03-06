@@ -85,7 +85,7 @@ void displayBMP(String filename) // only 8-bit bmps
 
       int y = 0;
       while (f.available() > 0) {
-        f.read((uint8_t *)line, zlen);
+        f.read(reinterpret_cast<uint8_t*>(line), zlen);
         for (int x = 0; x < info.biWidth; x++) {
           int color = ((int)colors[line[x]].r + (int)colors[line[x]].g + (int)colors[line[x]].b) / 3;
           if (color < 127) {
